@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participant Info</title>
+</head>
+<body>
+    <div id="participantInfo">Participant information will be displayed here.</div>
+    <script src="data.js"></script>
+    <script>
+        function displayParticipantInfo() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const participantId = urlParams.get('id');
+            const info = participantsData[participantId];
+            if (info) {
+                document.getElementById('participantInfo').innerHTML = `Name: ${info.name}, Country: ${info.country}, Committee: ${info.committee}`;
+            } else {
+                document.getElementById('participantInfo').innerText = "Participant not found.";
+            }
+        }
+
+        window.onload = displayParticipantInfo;
+    </script>
+</body>
+</html>
