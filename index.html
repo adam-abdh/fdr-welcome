@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Participant Info</title>
+    <title>Participant Information</title>
 </head>
 <body>
     <div id="participantInfo">Participant information will be displayed here.</div>
@@ -11,15 +11,18 @@
         function displayParticipantInfo() {
             const urlParams = new URLSearchParams(window.location.search);
             const participantId = urlParams.get('id');
-            const info = participantsData[participantId];
-            if (info) {
-                document.getElementById('participantInfo').innerHTML = `Name: ${info.name}, Country: ${info.country}, Committee: ${info.committee}`;
+            const participant = participantsData.find(p => p.ID === participantId);
+            if (participant) {
+                document.getElementById('participantInfo').innerHTML = `
+                    Name: ${participant["First name"]} ${participant["Last name"]},<br>
+                    Country: ${participant["Country"]},<br>
+                    Committee: ${participant["Committee"]}
+                `;
             } else {
                 document.getElementById('participantInfo').innerText = "Participant not found.";
             }
         }
-
-        window.onload = displayParticipantInfo;
+        displayParticipantInfo();
     </script>
 </body>
 </html>
