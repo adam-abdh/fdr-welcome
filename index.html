@@ -2,10 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Participant Information</title>
+    <title>Welcome - Participant Information</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #000066; /* Dark blue background */
+            color: white;
+            text-align: center;
+            padding-top: 50px; /* Adjust as needed for your layout */
+        }
+
+        #welcome {
+            font-size: 48px; /* Large welcome text */
+            margin-bottom: 30px;
+        }
+
+        #participantInfo {
+            font-size: 24px; /* Adjust as needed for your text */
+        }
+
+        .participant-detail {
+            margin: 10px 0; /* Space out the details */
+        }
+    </style>
 </head>
 <body>
-    <div id="participantInfo">Participant information will be displayed here.</div>
+    <div id="welcome">Welcome.</div>
+    <div id="participantInfo"></div>
     <script src="data.js"></script>
     <script>
         function displayParticipantInfo() {
@@ -13,16 +36,18 @@
             const participantId = urlParams.get('id');
             const participant = participantsData.find(p => p.ID === participantId);
             if (participant) {
-                document.getElementById('participantInfo').innerHTML = `
-                    Name: ${participant["First name"]} ${participant["Last name"]},<br>
-                    Country: ${participant["Country"]},<br>
-                    Committee: ${participant["Committee"]}
+                const infoDiv = document.getElementById('participantInfo');
+                infoDiv.innerHTML = `
+                    <div>Hello, ${participant["Title"]} ${participant["First name"]} ${participant["Last name"]}.</div>
+                    <div class="participant-detail">You're currently allocated</div>
+                    <div class="participant-detail">${participant["Committee"]}, as the ${participant["Country"]}.</div>
                 `;
             } else {
                 document.getElementById('participantInfo').innerText = "Participant not found.";
             }
         }
-        displayParticipantInfo();
+
+        window.onload = displayParticipantInfo;
     </script>
 </body>
 </html>
