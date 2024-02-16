@@ -1,6 +1,4 @@
 const participantsData = [
-
-[
   {
     "Title": "Mr.",
     "First name": "Luca",
@@ -901,5 +899,4 @@ const participantsData = [
     "Country": "Republic of Philippines",
     "ID": "FDREC240001"
   }
-]
-;
+];
