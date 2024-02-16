@@ -2,33 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FDRMUN Welcome</title>
+    <title>Welcome - FDR Opportunity</title>
     <style>
         body {
             font-family: 'Helvetica', sans-serif;
-            background-color: #223D9C; /* Dark blue background */
+            background-color: #000; /* Assuming a dark background */
             color: white;
             text-align: center;
-            padding-top: 50px; /* Adjust as needed for your layout */
+            margin: 0;
+            padding-top: 100px; /* Adjust as needed */
         }
 
         #welcome {
-            font-size: 48px; /* Large welcome text */
-            margin-bottom: 30px;
+            font-size: 6em; /* Large font size for Welcome */
+            background: -webkit-linear-gradient(left, #7e57c2, #b388ff, #7e57c2); /* Gradient effect */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        #subheading {
+            font-size: 2em; /* Smaller font size for subheading */
+            font-weight: lighter; /* Lighter font-weight for subheading */
         }
 
         #participantInfo {
-            font-size: 24px; /* Adjust as needed for your text */
+            font-size: 1.5em;
+            margin-top: 50px;
         }
 
-        .participant-detail {
-            margin: 10px 0; /* Space out the details */
+        .info {
+            margin: 20px 0;
+        }
+
+        .not-found {
+            font-size: 2em;
+            color: #e57373; /* Light red color for not found/error messages */
         }
     </style>
 </head>
 <body>
-    <div id="welcome">Hey, there!</div>
+    <div id="welcome">Welcome.</div>
+    <div id="subheading">FDR → OPPORTUNITY</div>
     <div id="participantInfo"></div>
+
     <script src="data.js"></script>
     <script>
         function displayParticipantInfo() {
@@ -38,12 +55,15 @@
             if (participant) {
                 const infoDiv = document.getElementById('participantInfo');
                 infoDiv.innerHTML = `
-                    <div>Hello, ${participant["Title"]} ${participant["First name"]} ${participant["Last name"]}.</div>
-                    <div class="participant-detail">You're currently allocated</div>
-                    <div class="participant-detail">${participant["Committee"]}, as the ${participant["Country"]}.</div>
+                    <div class="info">Hey, ${participant["Title"]} ${participant["First name"]}.</div>
+                    <div class="info">You've been allocated</div>
+                    <div class="info">${participant["Country"]} in ${participant["Committee"]}</div>
                 `;
             } else {
-                document.getElementById('participantInfo').innerText = "Participant not found.";
+                document.getElementById('participantInfo').innerHTML = `
+                    <div class="not-found">:(</div>
+                    <div class="not-found">We don't recognise this boardingPass. You should request additional proof of participation.</div>
+                `;
             }
         }
 
