@@ -6,54 +6,57 @@
     <style>
         body {
             font-family: 'Helvetica', sans-serif;
-            background-color: #212121; /* Dark grey background */
+            background-color: #1b1b1b; /* Even darker grey background */
             color: white;
             margin: 0;
-            padding: 50px; /* Responsive padding */
+            padding: 5%; /* Responsive padding */
         }
 
         #welcome {
-            font-size: 10vw; /* Responsive font size for Welcome */
+            font-size: 14vw; /* Much larger font size for Welcome */
             font-weight: bold; /* Make the welcome text bold */
-            letter-spacing: -0.05em; /* Reduce space between letters */
-            line-height: 1.2; /* Smaller line height */
-            background: -webkit-linear-gradient(left, #7e57c2, #b388ff, #7e57c2); /* Gradient effect */
+            background: linear-gradient(45deg, #ffd700, #7e57c2, #4fc3f7); /* Adjusted gradient with yellow and blue */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: left;
+            letter-spacing: -0.03em; /* Reduced space between letters */
+            line-height: 1.1; /* Smaller line height */
+            margin-bottom: 5px; /* Reduced space below Welcome */
         }
 
         #separator {
             height: 3px; /* Thickness of the separator */
             background-color: #ffffff; /* Color of the separator */
-            width: 80%; /* Length of the separator */
-            margin: 10px auto; /* Center the separator */
-        }
-
-        #subheading, #participantInfo, .not-found {
-            font-size: 5vw; /* Responsive font size for text */
-            line-height: 1.3; /* Spacing between lines */
+            margin: 10px 0; /* Space around the separator */
         }
 
         #subheading {
+            font-size: 7vw; /* Large font size for subheading for legibility on phones */
             font-weight: lighter; /* Lighter font-weight for subheading */
+            text-align: left;
+            margin-bottom: 5px; /* Reduced space below the subheading */
         }
 
         #participantInfo {
-            margin-top: 20px;
+            font-size: 6vw; /* Large font size for text for legibility on phones */
+            text-align: left;
         }
 
         .info {
-            margin: 15px 0;
+            margin: 15px 0; /* Responsive spacing for information */
         }
 
         .not-found {
-            color: white;
+            font-size: 10vw; /* Larger font size for not found/error messages */
+            color: white; /* White color for not found/error messages */
+            margin: 15px 0;
         }
 
         #protocol {
-            font-size: 3vw; 
-            margin-top: 50px;
-            color: #aaa;
+            font-size: 3vw; /* Responsive font size for the protocol text */
+            margin-top: 50px; /* Space above the protocol text */
+            color: #aaa; /* Light grey color for the protocol text */
+            text-align: left;
         }
     </style>
 </head>
@@ -87,7 +90,4 @@
             }
         }
 
-        window.onload = displayParticipantInfo;
-    </script>
-</body>
-</html>
+        window.onload =
