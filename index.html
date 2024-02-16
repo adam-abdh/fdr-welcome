@@ -2,23 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to FDRMUN</title>
+    <title>Welcome</title>
     <style>
         body {
             font-family: 'Helvetica', sans-serif;
             background-color: #000; /* Assuming a dark background */
             color: white;
-            text-align: center;
+            text-align: left;
             margin: 0;
             padding-top: 100px; /* Adjust as needed */
+            padding-left: 50px; /* Adjust as needed for left alignment */
         }
 
         #welcome {
             font-size: 6em; /* Large font size for Welcome */
-            background: -webkit-linear-gradient(left, #7e57c2, #b388ff, #7e57c2); /* Gradient effect */
+            font-weight: bold; /* Make the welcome text bold */
+            background: -webkit-linear-gradient(left, #7e57c2, #ffe600, #005eff); /* Gradient effect */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0;
+        }
+
+        #separator {
+            height: 2px; /* Thickness of the separator */
+            background-color: #212121; /* Color of the separator */
+            width: 50%; /* Length of the separator */
+            margin: 20px 0;
         }
 
         #subheading {
@@ -28,7 +37,7 @@
 
         #participantInfo {
             font-size: 1.5em;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         .info {
@@ -36,15 +45,25 @@
         }
 
         .not-found {
-            font-size: 2em;
-            color: #e57373; /* Light red color for not found/error messages */
+            font-size: 1em; /* Smaller font size for not found/error messages */
+            color: white; /* White color for not found/error messages */
+        }
+
+        #protocol {
+            font-size: 0.8em; /* Smaller font size for the protocol text */
+            margin-top: 50px; /* Space above the protocol text */
+            color: #aaa; /* Light grey color for the protocol text */
         }
     </style>
 </head>
 <body>
-    <div id="welcome">Welcome.</div>
+    <div id="welcome">Welcome</div>
+    <div id="separator"></div>
     <div id="subheading">FDR → OPPORTUNITY</div>
     <div id="participantInfo"></div>
+
+    <!-- Protocol Text -->
+    <div id="protocol">myFDR boardingPass protocol v3.3</div>
 
     <script src="data.js"></script>
     <script>
@@ -55,7 +74,7 @@
             if (participant) {
                 const infoDiv = document.getElementById('participantInfo');
                 infoDiv.innerHTML = `
-                    <div class="info">Hey, ${participant["Title"]} ${participant["First name"]}.</div>
+                    <div class="info">Hello, ${participant["First name"]}.</div>
                     <div class="info">You've been allocated</div>
                     <div class="info">${participant["Country"]} in ${participant["Committee"]}</div>
                 `;
