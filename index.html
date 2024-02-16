@@ -6,53 +6,54 @@
     <style>
         body {
             font-family: 'Helvetica', sans-serif;
-            background-color: #000; /* Assuming a dark background */
+            background-color: #212121; /* Dark grey background */
             color: white;
-            text-align: left;
             margin: 0;
-            padding-top: 100px; /* Adjust as needed */
-            padding-left: 50px; /* Adjust as needed for left alignment */
+            padding: 50px; /* Responsive padding */
         }
 
         #welcome {
-            font-size: 6em; /* Large font size for Welcome */
+            font-size: 10vw; /* Responsive font size for Welcome */
             font-weight: bold; /* Make the welcome text bold */
-            background: -webkit-linear-gradient(left, #7e57c2, #ffe600, #005eff); /* Gradient effect */
+            letter-spacing: -0.05em; /* Reduce space between letters */
+            line-height: 1.2; /* Smaller line height */
+            background: -webkit-linear-gradient(left, #7e57c2, #b388ff, #7e57c2); /* Gradient effect */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 0;
         }
 
         #separator {
-            height: 2px; /* Thickness of the separator */
-            background-color: #212121; /* Color of the separator */
-            width: 50%; /* Length of the separator */
-            margin: 20px 0;
+            height: 3px; /* Thickness of the separator */
+            background-color: #ffffff; /* Color of the separator */
+            width: 80%; /* Length of the separator */
+            margin: 10px auto; /* Center the separator */
+        }
+
+        #subheading, #participantInfo, .not-found {
+            font-size: 5vw; /* Responsive font size for text */
+            line-height: 1.3; /* Spacing between lines */
         }
 
         #subheading {
-            font-size: 2em; /* Smaller font size for subheading */
             font-weight: lighter; /* Lighter font-weight for subheading */
         }
 
         #participantInfo {
-            font-size: 1.5em;
             margin-top: 20px;
         }
 
         .info {
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .not-found {
-            font-size: 1em; /* Smaller font size for not found/error messages */
-            color: white; /* White color for not found/error messages */
+            color: white;
         }
 
         #protocol {
-            font-size: 0.8em; /* Smaller font size for the protocol text */
-            margin-top: 50px; /* Space above the protocol text */
-            color: #aaa; /* Light grey color for the protocol text */
+            font-size: 3vw; 
+            margin-top: 50px;
+            color: #aaa;
         }
     </style>
 </head>
@@ -81,7 +82,7 @@
             } else {
                 document.getElementById('participantInfo').innerHTML = `
                     <div class="not-found">:(</div>
-                    <div class="not-found">We don't recognise this boardingPass. You should request additional proof of participation.</div>
+                    <div class="not-found">We don't recognize this boarding pass. You should request additional proof of participation.</div>
                 `;
             }
         }
