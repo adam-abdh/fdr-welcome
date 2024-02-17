@@ -1,5 +1,5 @@
 const participantsData = [
-  [
+
   {
     "Title": "Mr.",
     "First name": "Luca",
